@@ -2,11 +2,18 @@ import 'package:weather/weather.dart';
 
 String key = "c853eff98b33883c2ca24735cbb78099";
 String cityName = "Zagreb";
-int temp = 0;
-Future<double?> getTemperature() async {
+
+Map<String, bool> clothes = {
+  "Winter jacket": false,
+  "Light jacket": false,
+  "Beanie": false,
+  "Scarf": false,
+};
+
+Future<List<int?>> getTemperature(String city) async {
   WeatherFactory wf = WeatherFactory(key);
 
-  final w =
-      await wf.currentWeatherByCityName(cityName).whenComplete(() => null);
-  return w.temperature?.celsius;
+  final w = await wf.currentWeatherByCityName(city);
+
+  return [w.temperature!.celsius!.round(), w.tempFeelsLike!.celsius!.round()];
 }
