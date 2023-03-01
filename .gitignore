@@ -2,3 +2,6 @@
 # Created by `dart pub`
 .dart_tool/
 bin/kak_je_vani.exe
+.DS_Store
+.gitignore
+bin/kak_je_vani
