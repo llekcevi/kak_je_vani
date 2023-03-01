@@ -18,4 +18,6 @@ void main(List<String> arg) async {
   clothes.forEach((key, value) {
     if (value == true) print("  $key");
   });
+
+  exit(1);
 }
