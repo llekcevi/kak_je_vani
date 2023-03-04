@@ -5,19 +5,12 @@ void main(List<String> arg) async {
   print("input city: ");
   final city = stdin.readLineSync();
 
-  final t = await getTemperature(city!);
-  print("Temperature: ${t[0]}°C | Feels like: ${t[1]}°C");
+  final w = await getWeather(city!);
+  print("Temperature: ${w[0]}°C | Feels like: ${w[1]}°C");
+  print("Weather: ${w[2]} | Wind speed : ${w[3]} m/s");
+  determineClothes(w);
 
-  if (t[1]! <= 3) {
-    clothes.update("Winter jacket", (value) => true);
-    clothes.update("Beanie", (value) => true);
-    clothes.update("Scarf", (value) => true);
-  }
-  print("put on: ");
-
-  clothes.forEach((key, value) {
-    if (value == true) print("  $key");
-  });
+  getClothes();
 
   exit(1);
 }
