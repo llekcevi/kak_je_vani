@@ -29,8 +29,12 @@ Future<List<dynamic?>> getWeather(String city) async {
   ];
 }
 
-void determineClothes(List<dynamic?> t) {
-  //logic that modifies clothes map according to the temperature
+void determineClothes(List<dynamic> t) {
+  if (t[1]! <= 3) {
+    clothes.update("Winter coat", (value) => true);
+    clothes.update("Beanie", (value) => true);
+    clothes.update("Scarf", (value) => true);
+  }
 }
 
 void getClothes() {
