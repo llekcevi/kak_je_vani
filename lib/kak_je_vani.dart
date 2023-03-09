@@ -29,11 +29,19 @@ Future<List<dynamic?>> getWeather(String city) async {
   ];
 }
 
-void determineClothes(List<dynamic> t) {
-  if (t[1]! <= 3) {
+void determineClothes(int t) {
+  if (t < 1) {
     clothes.update("Winter coat", (value) => true);
     clothes.update("Beanie", (value) => true);
     clothes.update("Scarf", (value) => true);
+  } else if (t >= 1 && t <= 4) {
+    clothes.update("Jacket", (value) => true);
+    clothes.update("Beanie", (value) => true);
+    clothes.update("Scarf", (value) => true);
+  } else if (t > 4 && t < 7) {
+    clothes.update("Jacket", (value) => true);
+  } else if (t >= 8 && t <= 12) {
+    clothes.update("Light jacket", (value) => true);
   }
 }
 
