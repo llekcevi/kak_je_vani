@@ -23,5 +23,5 @@ void main(List<String> args) async {
 
   print("Temperature: ${w[0]}°C | Feels like: ${w[1]}°C");
   print("Weather: ${w[2]} | Wind speed : ${w[3]} m/s");
-  exit(1);
+  exit(0);
 }
